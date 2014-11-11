@@ -1,25 +1,23 @@
 package bd.football.coachbook;
 
-import android.app.Activity;
-
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import bd.football.coachbook.fragment.PlayGroundFragment;
+import bd.football.coachbook.fragment.PlayTimeRecordFragment;
+import bd.football.coachbook.fragment.PlayerRegisterFragment;
+import bd.football.coachbook.utils.BLog;
 
-public class MainActivity extends Activity implements
-		NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
@@ -38,23 +36,21 @@ public class MainActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
-				.findFragmentById(R.id.navigation_drawer);
+		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
 
 		// Set up the drawer.
-		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
-				(DrawerLayout) findViewById(R.id.drawer_layout));
+		mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
 	}
 
+	private PlaceholderFragment placeholderFragment;
+	
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getFragmentManager();
-		fragmentManager
-				.beginTransaction()
-				.replace(R.id.container,
-						PlaceholderFragment.newInstance(position + 1)).commit();
+		placeholderFragment = PlaceholderFragment.newInstance(position + 1);
+		fragmentManager.beginTransaction().replace(R.id.container, placeholderFragment).commit();
 	}
 
 	public void onSectionAttached(int number) {
@@ -102,7 +98,13 @@ public class MainActivity extends Activity implements
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		BLog.d("onTouchEvent:"+event);
+		return super.onTouchEvent(event);
+	}
+	
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
@@ -117,29 +119,40 @@ public class MainActivity extends Activity implements
 		 * Returns a new instance of this fragment for the given section number.
 		 */
 		public static PlaceholderFragment newInstance(int sectionNumber) {
-			PlaceholderFragment fragment = new PlaceholderFragment();
+			PlaceholderFragment fragment = getSectionFragment(sectionNumber);
 			Bundle args = new Bundle();
 			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
 			fragment.setArguments(args);
+			BLog.e("newInstance - sectionNumber:" + sectionNumber);
 			return fragment;
 		}
 
+		public static PlaceholderFragment getSectionFragment(int sectionNumber) {
+			switch (sectionNumber) {
+			case 1:
+				return new PlayerRegisterFragment();
+			case 2:
+				return new PlayGroundFragment();
+			case 3:
+				return new PlayTimeRecordFragment();
+			default:
+				return new PlaceholderFragment();
+			}
+		}
+		
 		public PlaceholderFragment() {
 		}
 
 		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main, container,
-					false);
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 			return rootView;
 		}
 
 		@Override
 		public void onAttach(Activity activity) {
 			super.onAttach(activity);
-			((MainActivity) activity).onSectionAttached(getArguments().getInt(
-					ARG_SECTION_NUMBER));
+			((MainActivity) activity).onSectionAttached(getArguments().getInt(ARG_SECTION_NUMBER));
 		}
 	}
 

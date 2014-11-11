@@ -5,7 +5,7 @@
     android:orientation="vertical"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <com.example.test_team_manager.view.PlayTimerView
+    <bd.football.coachbook.view.PlayTimerView
         android:id="@+id/playTimerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

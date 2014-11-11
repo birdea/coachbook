@@ -22,18 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.PlayGroundActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.PlayerRegisterActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.PlayTimeRecordActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -2,7 +2,7 @@ package bd.football.coachbook.utils;
 
 import android.util.Log;
 
-public class BDLog {
+public class BLog {
 
 	private static final String TAG = "birdea";
 

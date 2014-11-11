@@ -3,7 +3,7 @@ package bd.football.coachbook.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import bd.football.coachbook.utils.BDLog;
+import bd.football.coachbook.utils.BLog;
 
 public class DBOpenHelper extends SQLiteOpenHelper {
 
@@ -24,7 +24,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 		if (oldVersion >= newVersion) {
 			return;
 		}
-		BDLog.i("CameraDBOpenHelper.onUpgrade oldVersion = " + oldVersion
+		BLog.i("CameraDBOpenHelper.onUpgrade oldVersion = " + oldVersion
 				+ ", newVersion = " + newVersion);
 	}
 

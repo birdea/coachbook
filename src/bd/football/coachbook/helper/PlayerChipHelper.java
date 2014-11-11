@@ -11,7 +11,7 @@ import android.graphics.Paint;
 import bd.football.coachbook.model.PlayerChip;
 import bd.football.coachbook.model.PlayerChip.ViewPoint;
 import bd.football.coachbook.model.TeamFormation;
-import bd.football.coachbook.utils.BDLog;
+import bd.football.coachbook.utils.BLog;
 
 public class PlayerChipHelper {
 
@@ -58,7 +58,7 @@ public class PlayerChipHelper {
 		item.length = 50;
 		int[] xy = validAddPointer();
 		item.viewPoint = new ViewPoint(xy[0], xy[1]);
-		BDLog.e("makePlayerChip x:" + xy[0] + ", y:" + xy[1] + ", lastNumber:" + lastNumber + ", dividerY:" + dividerY);
+		BLog.e("makePlayerChip x:" + xy[0] + ", y:" + xy[1] + ", lastNumber:" + lastNumber + ", dividerY:" + dividerY);
 		return item;
 	}
 

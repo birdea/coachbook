@@ -17,7 +17,7 @@ import android.os.Message;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
-import bd.football.coachbook.utils.BDLog;
+import bd.football.coachbook.utils.BLog;
 
 public class PlayTimerView extends RelativeLayout {
 
@@ -205,7 +205,7 @@ public class PlayTimerView extends RelativeLayout {
 			// rectTimerArc1.set((int)(centerX-radius), (int)(centerY-radius),
 			// (int)(centerX+radius), (int)(centerY+radius));
 		}
-		BDLog.e("onLayout left:" + left + ", top:" + top + ", right:" + right + ", bottom:" + bottom);
+		BLog.e("onLayout left:" + left + ", top:" + top + ", right:" + right + ", bottom:" + bottom);
 		super.onLayout(changed, l, t, r, b);
 	}
 

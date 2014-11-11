@@ -21,7 +21,7 @@ import bd.football.coachbook.helper.PlayerChipHelper;
 import bd.football.coachbook.model.PlayerChip;
 import bd.football.coachbook.model.TeamFormation;
 import bd.football.coachbook.rules.PlayerChipInterface;
-import bd.football.coachbook.utils.BDLog;
+import bd.football.coachbook.utils.BLog;
 
 public class PlayGroundView extends RelativeLayout implements PlayerChipInterface {
 
@@ -191,7 +191,7 @@ public class PlayGroundView extends RelativeLayout implements PlayerChipInterfac
 			handleTouchActionUp(event);
 			break;
 		}
-		return super.onTouchEvent(event);
+		return true;//super.onTouchEvent(event);
 	}
 
 	private enum TouchEvent {
@@ -226,7 +226,7 @@ public class PlayGroundView extends RelativeLayout implements PlayerChipInterfac
 				playerChipGrab = chip;
 				playerChipGrab.grab = true;
 				chipTouchMode = ChipTouchMode.GRAB;
-				BDLog.e("handleTouchActionDown GRAB!!! :" + chip.number);
+				BLog.e("handleTouchActionDown GRAB!!! :" + chip.number);
 				break;
 			}
 		}
@@ -247,7 +247,7 @@ public class PlayGroundView extends RelativeLayout implements PlayerChipInterfac
 	private boolean isGrabPointOnChip(PlayerChip chip, float touchX, float touchY) {
 		Rect rect = new Rect();
 		rect.set((int) (chip.viewPoint.x - 10), (int) (chip.viewPoint.y - 10), (int) (chip.viewPoint.x + chip.length + 10), (int) (chip.viewPoint.y + chip.length + 10));
-		BDLog.d("isGrabPointOnChip touchX:" + touchX + ",touchY:" + touchY + "// viewX:" + chip.viewPoint.x + ",viewY:" + chip.viewPoint.y + ", num:" + chip.number + ", R.width:"
+		BLog.d("isGrabPointOnChip touchX:" + touchX + ",touchY:" + touchY + "// viewX:" + chip.viewPoint.x + ",viewY:" + chip.viewPoint.y + ", num:" + chip.number + ", R.width:"
 				+ rect.width() + ", R.height:" + rect.height());
 		return rect.contains((int) touchX, (int) touchY);
 	}
@@ -259,12 +259,12 @@ public class PlayGroundView extends RelativeLayout implements PlayerChipInterfac
 			playerChipGrab.viewPoint.x = touchX;
 			playerChipGrab.viewPoint.y = touchY;
 		}
-		BDLog.d("handleTouchActionMove chipTouchMode:" + chipTouchMode + ", touchX:" + touchX + ", touchY:" + touchY);
+		BLog.d("handleTouchActionMove chipTouchMode:" + chipTouchMode + ", touchX:" + touchX + ", touchY:" + touchY);
 		invalidate();
 	}
 
 	private void handleTouchActionUp(MotionEvent event) {
-		BDLog.d("handleTouchActionUp playerChipGrab:" + playerChipGrab);
+		BLog.d("handleTouchActionUp playerChipGrab:" + playerChipGrab);
 		// set renew player chip
 		if (ChipTouchMode.GRAB.equals(chipTouchMode) && playerChipGrab != null) {
 			touchX = getTouchX(event);
@@ -293,7 +293,7 @@ public class PlayGroundView extends RelativeLayout implements PlayerChipInterfac
 			viewHeight = bottom - top;
 			playerChipHelper.setViewBounds(viewWidth, viewHeight);
 		}
-		BDLog.e("onLayout left:" + left + ", top:" + top + ", right:" + right + ", bottom:" + bottom);
+		BLog.e("onLayout left:" + left + ", top:" + top + ", right:" + right + ", bottom:" + bottom);
 		super.onLayout(changed, l, t, r, b);
 	}
 }
