@@ -1,0 +1,56 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <bd.football.coachbook.view.PlayGroundView
+        android:id="@+id/playGroundView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/lly_control_layer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="top"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_save_image"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:text="SAVE"
+            android:textSize="12sp" />
+
+        <Button
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:text="X"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_change_left"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:text="&lt;"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_change_right"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:text=">"
+            android:textSize="12sp" />
+
+        <Spinner
+            android:id="@+id/spinner_formation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/layer_bottom_member_info"
+        layout="@layout/adapt_member_list_item" />
+
+</FrameLayout>

@@ -1,0 +1,151 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <FrameLayout
+        android:id="@+id/lly_control_layer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_timer_soccerball_02" >
+
+        <ImageView
+            android:id="@+id/iv_reg_player_photo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:padding="5dp"
+            android:layout_gravity="left|center"
+            android:alpha="0.8"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher"/>
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lly_control_layer"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/btn_reg_player_photo_camera"
+                    style="@style/RegisterPlayerTextView"
+                    android:layout_weight="1"
+                    android:text="CAMERA" />
+
+                <Button
+                    android:id="@+id/btn_reg_player_photo_gallery"
+                    style="@style/RegisterPlayerTextView"
+                    android:layout_weight="1"
+                    android:text="GALLERY" />
+
+                <Button
+                    android:id="@+id/btn_reg_player_contacts"
+                    style="@style/RegisterPlayerTextView"
+                    android:layout_weight="1"
+                    android:text="CONTACTS" />
+            </LinearLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        style="@style/RegisterPlayerTextView"
+                        android:hint="name" />
+
+                    <EditText
+                        android:id="@+id/et_player_name"
+                        style="@style/RegisterPlayerTextView"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        style="@style/RegisterPlayerTextView"
+                        android:hint="age" />
+
+                    <EditText
+                        android:id="@+id/et_player_age"
+                        style="@style/RegisterPlayerTextView"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:inputType="number" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        style="@style/RegisterPlayerTextView"
+                        android:hint="phone" />
+
+                    <EditText
+                        android:id="@+id/et_player_phone"
+                        style="@style/RegisterPlayerTextView"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:inputType="phone" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        style="@style/RegisterPlayerTextView"
+                        android:hint="email" />
+
+                    <EditText
+                        android:id="@+id/et_player_email"
+                        style="@style/RegisterPlayerTextView"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:inputType="textEmailAddress" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        style="@style/RegisterPlayerTextView"
+                        android:hint="number" />
+
+                    <EditText
+                        android:id="@+id/et_player_number"
+                        style="@style/RegisterPlayerTextView"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:inputType="number" />
+                </TableRow>
+            </TableLayout>
+
+            <Button
+                android:id="@+id/btn_add_player"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Register" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

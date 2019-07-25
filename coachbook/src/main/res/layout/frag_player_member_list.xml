@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_timer_soccerball_01" >
+
+        <LinearLayout
+            android:id="@+id/lly_control_layer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_refresh_player"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="*" />
+
+            <Button
+                android:id="@+id/btn_remove_player"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="-" />
+
+            <Spinner
+                android:id="@+id/spinner_playerlist"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <ListView
+        android:id="@+id/lv_member_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lly_control_layer" />
+
+</LinearLayout>

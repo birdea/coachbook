@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#aaaa"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <FrameLayout
+        android:id="@+id/lly_team_a_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/iv_member_a_photo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="left|top"
+            android:scaleType="fitCenter"
+            android:src="@drawable/soccer_ball_08" />
+
+        <TextView
+            android:id="@+id/tv_member_a_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|bottom"
+            android:gravity="center|left"
+            android:singleLine="true"
+            android:text="NAME"
+            android:textColor="#2f3033"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_record_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:singleLine="true"
+        android:text="&apos;15"
+        android:textColor="#2f3033"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:id="@+id/lly_team_b_record"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/iv_member_b_photo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="right|top"
+            android:scaleType="fitCenter"
+            android:src="@drawable/soccer_ball_08" />
+
+        <TextView
+            android:id="@+id/tv_member_b_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:gravity="center|left"
+            android:singleLine="true"
+            android:text="NAME"
+            android:textColor="#2f3033"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+</LinearLayout>
